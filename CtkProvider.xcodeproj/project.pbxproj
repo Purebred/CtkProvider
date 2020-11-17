@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		553DF8222539D17B00F49BBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8212539D17B00F49BBE /* AppDelegate.m */; };
+		553DF8252539D17B00F49BBE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8242539D17B00F49BBE /* SceneDelegate.m */; };
+		553DF8282539D17B00F49BBE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8272539D17B00F49BBE /* ViewController.m */; };
+		553DF82B2539D17B00F49BBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553DF8292539D17B00F49BBE /* Main.storyboard */; };
+		553DF82D2539D17D00F49BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553DF82C2539D17D00F49BBE /* Assets.xcassets */; };
+		553DF8302539D17D00F49BBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553DF82E2539D17D00F49BBE /* LaunchScreen.storyboard */; };
+		553DF8332539D17D00F49BBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8322539D17D00F49BBE /* main.m */; };
+		553DF8412539D1E000F49BBE /* CryptoTokenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553DF8402539D1E000F49BBE /* CryptoTokenKit.framework */; };
+		553DF8452539D1E000F49BBE /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8442539D1E000F49BBE /* Token.m */; };
+		553DF8472539D1E000F49BBE /* TokenDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8462539D1E000F49BBE /* TokenDriver.m */; };
+		553DF8492539D1E000F49BBE /* TokenSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DF8482539D1E000F49BBE /* TokenSession.m */; };
+		553DF84D2539D1E000F49BBE /* CtkProviderToken.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 553DF83E2539D1E000F49BBE /* CtkProviderToken.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		553DF8572539D5B500F49BBE /* decryption.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 553DF8542539D5B500F49BBE /* decryption.p12 */; };
+		553DF8582539D5B500F49BBE /* signature.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 553DF8552539D5B500F49BBE /* signature.p12 */; };
+		553DF8592539D5B500F49BBE /* authentication.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 553DF8562539D5B500F49BBE /* authentication.p12 */; };
+		5547596B2541A06600B95200 /* CtkProviderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5547596A2541A06600B95200 /* CtkProviderUtils.m */; };
+		55F92D8C253DC66F00C52ABD /* TokenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92D8B253DC66F00C52ABD /* TokenUtils.m */; };
+		55F92D96253DD62200C52ABD /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92D95253DD62200C52ABD /* NSData+Conversion.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		553DF84B2539D1E000F49BBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 553DF8152539D17B00F49BBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 553DF83D2539D1E000F49BBE;
+			remoteInfo = CtkProviderToken;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		553DF8512539D1E000F49BBE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				553DF84D2539D1E000F49BBE /* CtkProviderToken.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		553DF81D2539D17B00F49BBE /* CtkProvider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CtkProvider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		553DF8202539D17B00F49BBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		553DF8212539D17B00F49BBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		553DF8232539D17B00F49BBE /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		553DF8242539D17B00F49BBE /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		553DF8262539D17B00F49BBE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		553DF8272539D17B00F49BBE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		553DF82A2539D17B00F49BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		553DF82C2539D17D00F49BBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		553DF82F2539D17D00F49BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		553DF8312539D17D00F49BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		553DF8322539D17D00F49BBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		553DF83E2539D1E000F49BBE /* CtkProviderToken.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CtkProviderToken.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		553DF8402539D1E000F49BBE /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
+		553DF8432539D1E000F49BBE /* Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		553DF8442539D1E000F49BBE /* Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		553DF8462539D1E000F49BBE /* TokenDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenDriver.m; sourceTree = "<group>"; };
+		553DF8482539D1E000F49BBE /* TokenSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSession.m; sourceTree = "<group>"; };
+		553DF84A2539D1E000F49BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		553DF8542539D5B500F49BBE /* decryption.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = decryption.p12; sourceTree = "<group>"; };
+		553DF8552539D5B500F49BBE /* signature.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = signature.p12; sourceTree = "<group>"; };
+		553DF8562539D5B500F49BBE /* authentication.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = authentication.p12; sourceTree = "<group>"; };
+		553DF85C253A037100F49BBE /* CtkProviderToken.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CtkProviderToken.entitlements; sourceTree = "<group>"; };
+		553DF85F253A038500F49BBE /* CtkProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CtkProvider.entitlements; sourceTree = "<group>"; };
+		554759692541A04900B95200 /* CtkProviderUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CtkProviderUtils.h; sourceTree = "<group>"; };
+		5547596A2541A06600B95200 /* CtkProviderUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CtkProviderUtils.m; sourceTree = "<group>"; };
+		55F92D8B253DC66F00C52ABD /* TokenUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenUtils.m; sourceTree = "<group>"; };
+		55F92D8F253DC68300C52ABD /* TokenUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenUtils.h; sourceTree = "<group>"; };
+		55F92D94253DD60000C52ABD /* NSData+Conversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Conversion.h"; sourceTree = "<group>"; };
+		55F92D95253DD62200C52ABD /* NSData+Conversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		553DF81A2539D17B00F49BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		553DF83B2539D1E000F49BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553DF8412539D1E000F49BBE /* CryptoTokenKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		553DF8142539D17B00F49BBE = {
+			isa = PBXGroup;
+			children = (
+				553DF8562539D5B500F49BBE /* authentication.p12 */,
+				553DF8542539D5B500F49BBE /* decryption.p12 */,
+				553DF8552539D5B500F49BBE /* signature.p12 */,
+				553DF81F2539D17B00F49BBE /* CtkProvider */,
+				553DF8422539D1E000F49BBE /* CtkProviderToken */,
+				553DF83F2539D1E000F49BBE /* Frameworks */,
+				553DF81E2539D17B00F49BBE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		553DF81E2539D17B00F49BBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				553DF81D2539D17B00F49BBE /* CtkProvider.app */,
+				553DF83E2539D1E000F49BBE /* CtkProviderToken.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		553DF81F2539D17B00F49BBE /* CtkProvider */ = {
+			isa = PBXGroup;
+			children = (
+				553DF85F253A038500F49BBE /* CtkProvider.entitlements */,
+				553DF8202539D17B00F49BBE /* AppDelegate.h */,
+				553DF8212539D17B00F49BBE /* AppDelegate.m */,
+				553DF8232539D17B00F49BBE /* SceneDelegate.h */,
+				553DF8242539D17B00F49BBE /* SceneDelegate.m */,
+				553DF8262539D17B00F49BBE /* ViewController.h */,
+				553DF8272539D17B00F49BBE /* ViewController.m */,
+				553DF8292539D17B00F49BBE /* Main.storyboard */,
+				553DF82C2539D17D00F49BBE /* Assets.xcassets */,
+				553DF82E2539D17D00F49BBE /* LaunchScreen.storyboard */,
+				553DF8312539D17D00F49BBE /* Info.plist */,
+				553DF8322539D17D00F49BBE /* main.m */,
+				554759692541A04900B95200 /* CtkProviderUtils.h */,
+				5547596A2541A06600B95200 /* CtkProviderUtils.m */,
+			);
+			path = CtkProvider;
+			sourceTree = "<group>";
+		};
+		553DF83F2539D1E000F49BBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				553DF8402539D1E000F49BBE /* CryptoTokenKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		553DF8422539D1E000F49BBE /* CtkProviderToken */ = {
+			isa = PBXGroup;
+			children = (
+				553DF85C253A037100F49BBE /* CtkProviderToken.entitlements */,
+				553DF8432539D1E000F49BBE /* Token.h */,
+				553DF8442539D1E000F49BBE /* Token.m */,
+				553DF8462539D1E000F49BBE /* TokenDriver.m */,
+				553DF8482539D1E000F49BBE /* TokenSession.m */,
+				553DF84A2539D1E000F49BBE /* Info.plist */,
+				55F92D8B253DC66F00C52ABD /* TokenUtils.m */,
+				55F92D8F253DC68300C52ABD /* TokenUtils.h */,
+				55F92D94253DD60000C52ABD /* NSData+Conversion.h */,
+				55F92D95253DD62200C52ABD /* NSData+Conversion.m */,
+			);
+			path = CtkProviderToken;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		553DF81C2539D17B00F49BBE /* CtkProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 553DF8362539D17D00F49BBE /* Build configuration list for PBXNativeTarget "CtkProvider" */;
+			buildPhases = (
+				553DF8192539D17B00F49BBE /* Sources */,
+				553DF81A2539D17B00F49BBE /* Frameworks */,
+				553DF81B2539D17B00F49BBE /* Resources */,
+				553DF8512539D1E000F49BBE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				553DF84C2539D1E000F49BBE /* PBXTargetDependency */,
+			);
+			name = CtkProvider;
+			productName = CtkProvider;
+			productReference = 553DF81D2539D17B00F49BBE /* CtkProvider.app */;
+			productType = "com.apple.product-type.application";
+		};
+		553DF83D2539D1E000F49BBE /* CtkProviderToken */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 553DF84E2539D1E000F49BBE /* Build configuration list for PBXNativeTarget "CtkProviderToken" */;
+			buildPhases = (
+				553DF83A2539D1E000F49BBE /* Sources */,
+				553DF83B2539D1E000F49BBE /* Frameworks */,
+				553DF83C2539D1E000F49BBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CtkProviderToken;
+			productName = CtkProviderToken;
+			productReference = 553DF83E2539D1E000F49BBE /* CtkProviderToken.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		553DF8152539D17B00F49BBE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					553DF81C2539D17B00F49BBE = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					553DF83D2539D1E000F49BBE = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 553DF8182539D17B00F49BBE /* Build configuration list for PBXProject "CtkProvider" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 553DF8142539D17B00F49BBE;
+			productRefGroup = 553DF81E2539D17B00F49BBE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				553DF81C2539D17B00F49BBE /* CtkProvider */,
+				553DF83D2539D1E000F49BBE /* CtkProviderToken */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		553DF81B2539D17B00F49BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553DF8572539D5B500F49BBE /* decryption.p12 in Resources */,
+				553DF8592539D5B500F49BBE /* authentication.p12 in Resources */,
+				553DF8302539D17D00F49BBE /* LaunchScreen.storyboard in Resources */,
+				553DF8582539D5B500F49BBE /* signature.p12 in Resources */,
+				553DF82D2539D17D00F49BBE /* Assets.xcassets in Resources */,
+				553DF82B2539D17B00F49BBE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		553DF83C2539D1E000F49BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		553DF8192539D17B00F49BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553DF8282539D17B00F49BBE /* ViewController.m in Sources */,
+				553DF8222539D17B00F49BBE /* AppDelegate.m in Sources */,
+				553DF8332539D17D00F49BBE /* main.m in Sources */,
+				553DF8252539D17B00F49BBE /* SceneDelegate.m in Sources */,
+				5547596B2541A06600B95200 /* CtkProviderUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		553DF83A2539D1E000F49BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55F92D96253DD62200C52ABD /* NSData+Conversion.m in Sources */,
+				553DF8452539D1E000F49BBE /* Token.m in Sources */,
+				55F92D8C253DC66F00C52ABD /* TokenUtils.m in Sources */,
+				553DF8492539D1E000F49BBE /* TokenSession.m in Sources */,
+				553DF8472539D1E000F49BBE /* TokenDriver.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		553DF84C2539D1E000F49BBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 553DF83D2539D1E000F49BBE /* CtkProviderToken */;
+			targetProxy = 553DF84B2539D1E000F49BBE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		553DF8292539D17B00F49BBE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553DF82A2539D17B00F49BBE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		553DF82E2539D17D00F49BBE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553DF82F2539D17D00F49BBE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		553DF8342539D17D00F49BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		553DF8352539D17D00F49BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		553DF8372539D17D00F49BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CtkProvider/CtkProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2FBELHR72N;
+				INFOPLIST_FILE = CtkProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		553DF8382539D17D00F49BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CtkProvider/CtkProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2FBELHR72N;
+				INFOPLIST_FILE = CtkProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		553DF84F2539D1E000F49BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CtkProviderToken/CtkProviderToken.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2FBELHR72N;
+				INFOPLIST_FILE = CtkProviderToken/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider.CtkProviderToken;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		553DF8502539D1E000F49BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CtkProviderToken/CtkProviderToken.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2FBELHR72N;
+				INFOPLIST_FILE = CtkProviderToken/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider.CtkProviderToken;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		553DF8182539D17B00F49BBE /* Build configuration list for PBXProject "CtkProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553DF8342539D17D00F49BBE /* Debug */,
+				553DF8352539D17D00F49BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		553DF8362539D17D00F49BBE /* Build configuration list for PBXNativeTarget "CtkProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553DF8372539D17D00F49BBE /* Debug */,
+				553DF8382539D17D00F49BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		553DF84E2539D1E000F49BBE /* Build configuration list for PBXNativeTarget "CtkProviderToken" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553DF84F2539D1E000F49BBE /* Debug */,
+				553DF8502539D1E000F49BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 553DF8152539D17B00F49BBE /* Project object */;
+}
