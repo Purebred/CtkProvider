@@ -257,15 +257,6 @@ performKeyExchangeWithPublicKey:(NSData *)otherPartyPublicKeyData
     SecKeyRef privateKeyRef = nil;
     @try
     {
-        // Confirm the algorithm is an RSA algorithm.
-        if(!IsAlgorithmSupported(algorithm))
-        {
-            // Log TKTokenAlgorithm directly since we don't know what the value is to render a string
-            NSLog(@"%s: unsupported algorithm passed to signData: %@", g_logPrefix, algorithm);
-            *error = [NSError errorWithDomain:TKErrorDomain code:TKErrorCodeBadParameter userInfo:@{NSLocalizedDescriptionKey: @"Unsupported algorithm passed to signData"}];
-            return nil;
-        }
-
         // Get reference to private key (should have kSecAttrLabel set to keyObjectID)
         privateKeyRef = getKey(keyObjectID);
         if(nil == privateKeyRef)
@@ -284,80 +275,26 @@ performKeyExchangeWithPublicKey:(NSData *)otherPartyPublicKeyData
             CFRetain(privateKeyRef);
         }
 
-        // Derive padding scheme from algorithm
-        SecPadding padding = GetPaddingForAlg(algorithm);
-        if(kSecPaddingNone == padding)
+        SecKeyAlgorithm a = GetAlgorithmFromTKTokenKeyAlgorithm(algorithm);
+        if(!SecKeyIsAlgorithmSupported(privateKeyRef, kSecKeyOperationTypeSign, a))
         {
-            NSLog(@"%s: kSecPaddingNone in use (continuing but likely wrong) for algorithm %@", g_logPrefix, GetAlgorithmStringFromTKTokenKeyAlgorithm(algorithm));
+            // Log TKTokenAlgorithm directly since we don't know what the value is to render a string
+            NSLog(@"%s: unsupported algorithm passed to signData: %@", g_logPrefix, algorithm);
+            *error = [NSError errorWithDomain:TKErrorDomain code:TKErrorCodeBadParameter userInfo:@{NSLocalizedDescriptionKey: @"Unsupported algorithm passed to signData"}];
+            return nil;
         }
 
-        // Get the block size, default to larger than necessary if this fails (and it ought not)
-        size_t sigLen = SecKeyGetBlockSize(privateKeyRef);
-        if(0 >= sigLen)
-            sigLen = 1024;
-
-        NSMutableData *signature = [[NSMutableData alloc] initWithLength:sigLen];
-        uint8_t* sig = (uint8_t*)[signature bytes];
-
-        // define variable to receive hash value if algorithm is a "message" algorithm
-        NSMutableData* hash = nil;
-        
-        // define pointer and length to reference data to sign (either raw data or hash)
-        unsigned char* p = NULL;
-        unsigned long pLen = 0;
-        
-        if(NeedToHashFirst(algorithm)) {
-            enum SupportedHashAlg sa = GetHashAlgFromTkTokenKeyAlgorithm(algorithm);
-            if(CTK_SHA1 == sa){
-                pLen = CC_SHA1_DIGEST_LENGTH;
-                hash = [[NSMutableData alloc] initWithLength:CC_SHA1_DIGEST_LENGTH];
-                p = (unsigned char*)[hash bytes];
-                CC_SHA1([dataToSign bytes], (CC_LONG)[dataToSign length], p);
-            }
-            else if(CTK_SHA224 == sa){
-                pLen = CC_SHA224_DIGEST_LENGTH;
-                hash = [[NSMutableData alloc] initWithLength:CC_SHA224_DIGEST_LENGTH];
-                p = (unsigned char*)[hash bytes];
-                CC_SHA224([dataToSign bytes], (CC_LONG)[dataToSign length], p);
-            }
-            else if(CTK_SHA256 == sa){
-                pLen = CC_SHA256_DIGEST_LENGTH;
-                hash = [[NSMutableData alloc] initWithLength:CC_SHA256_DIGEST_LENGTH];
-                p = (unsigned char*)[hash bytes];
-                CC_SHA256([dataToSign bytes], (CC_LONG)[dataToSign length], p);
-            }
-            else if(CTK_SHA384 == sa){
-                pLen = CC_SHA384_DIGEST_LENGTH;
-                hash = [[NSMutableData alloc] initWithLength:CC_SHA384_DIGEST_LENGTH];
-                p = (unsigned char*)[hash bytes];
-                CC_SHA384([dataToSign bytes], (CC_LONG)[dataToSign length], p);
-            }
-            else if(CTK_SHA512 == sa){
-                pLen = CC_SHA512_DIGEST_LENGTH;
-                hash = [[NSMutableData alloc] initWithLength:CC_SHA512_DIGEST_LENGTH];
-                p = (unsigned char*)[hash bytes];
-                CC_SHA512([dataToSign bytes], (CC_LONG)[dataToSign length], p);
-            }
-        }
-        
-        if(NULL == p)
-        {
-            p = (unsigned char*)[dataToSign bytes];
-            pLen = [dataToSign length];
-        }
-        
-        OSStatus status = SecKeyRawSign(privateKeyRef, padding, p, pLen, sig, &sigLen);
+        CFErrorRef cferror;
+        CFDataRef cfsignature = SecKeyCreateSignature(privateKeyRef, a, (CFDataRef)dataToSign, &cferror);
         CFRelease(privateKeyRef);
-        if(errSecSuccess != status) {
-            NSLog(@"%s: SecKeyRawSign failed: %d", g_logPrefix, status);
+        if(!cfsignature) {
+            NSError* e = (__bridge_transfer NSError*)cferror;
+            NSLog(@"%s: SecKeyCreateSignature failed: %@", g_logPrefix, [e localizedDescription]);
             *error = [NSError errorWithDomain:TKErrorDomain code:TKErrorCodeBadParameter userInfo:@{NSLocalizedDescriptionKey: @"SecKeyRawSign failed"}];
             return nil;
         }
-        else {
-            // set signature size in case we hit the block above where size was unknown
-            [signature setLength:sigLen];
-        }
 
+        NSData* signature = (__bridge_transfer NSData*)cfsignature;
         LOG_SPECIAL(@"%s: signature value: %@", g_logPrefix, [signature hexadecimalString]);
         NSLog(@"%s: signature length: %li", g_logPrefix, (unsigned long)[signature length]);
         return signature;

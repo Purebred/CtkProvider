@@ -780,7 +780,6 @@ bool IsAlgorithmSupported(TKTokenKeyAlgorithm * algorithm)
         return true;
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA512])
         return true;
- /*
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureDigestPSSSHA1])
         return true;
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureDigestPSSSHA224])
@@ -801,7 +800,6 @@ bool IsAlgorithmSupported(TKTokenKeyAlgorithm * algorithm)
         return true;
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureMessagePSSSHA512])
         return true;
-        */
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSAEncryptionRaw])
         return true;
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSAEncryptionPKCS1])
