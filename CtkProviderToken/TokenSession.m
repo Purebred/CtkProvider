@@ -355,27 +355,32 @@ performKeyExchangeWithPublicKey:(NSData *)otherPartyPublicKeyData
             CFRetain(privateKeyRef);
         }
 
-        SecPadding padding = GetPaddingForAlg(algorithm);
-        if(kSecPaddingNone == padding)
+        SecKeyAlgorithm a = GetAlgorithmFromTKTokenKeyAlgorithm(algorithm);
+        if(!SecKeyIsAlgorithmSupported(privateKeyRef, kSecKeyOperationTypeDecrypt, a))
         {
-            NSLog(@"%s: kSecPaddingNone in use (continuing but likely wrong) for algorithm %@", g_logPrefix, GetAlgorithmStringFromTKTokenKeyAlgorithm(algorithm));
-        }
-
-        unsigned long pLen = (unsigned long)[ciphertext length];
-        NSMutableData *plaintext = [[NSMutableData alloc] initWithLength:pLen];
-        unsigned char* p = (unsigned char*)[plaintext bytes];
-
-        OSStatus status = SecKeyDecrypt(privateKeyRef, padding, [ciphertext bytes], [ciphertext length], p, &pLen);
-        CFRelease(privateKeyRef);
-        if(errSecSuccess != status) {
-            NSLog(@"%s: SecKeyDecrypt failed: %d", g_logPrefix, status);
-            *error = [NSError errorWithDomain:TKErrorDomain code:TKErrorCodeBadParameter userInfo:@{NSLocalizedDescriptionKey: @"SecKeyDecrypt failed"}];
+            // Log TKTokenAlgorithm directly since we don't know what the value is to render a string
+            NSLog(@"%s: unsupported algorithm passed to signData: %@", g_logPrefix, algorithm);
+            *error = [NSError errorWithDomain:TKErrorDomain code:TKErrorCodeBadParameter userInfo:@{NSLocalizedDescriptionKey: @"Unsupported algorithm passed to signData"}];
             return nil;
         }
-        else {
-            [plaintext setLength:pLen];
+
+        CFErrorRef cferror;
+        CFDataRef cfplaintext = SecKeyCreateDecryptedData(privateKeyRef, a, (CFDataRef)ciphertext, &cferror);
+        if(!cfplaintext){
+            CFStringRef cfErrorString = CFErrorCopyDescription(cferror);
+            const char * err = CFStringGetCStringPtr(cfErrorString, kCFStringEncodingUTF8);
+            if(err) {
+                NSLog(@"SecKeyCreateDecryptedData failed: %s", err);
+            }
+            else {
+                NSLog(@"SecKeyCreateDecryptedData failed");
+            }
+            CFRelease(cferror);
+            CFRelease(cfErrorString);
+            return nil;
         }
 
+        NSData* plaintext = (__bridge_transfer NSData*)cfplaintext;
         LOG_SPECIAL(@"%s: plaintext value: %@", g_logPrefix, [plaintext hexadecimalString]);
         NSLog(@"%s: plaintext length: %li", g_logPrefix, (unsigned long)[plaintext length]);
         return plaintext;

@@ -119,7 +119,7 @@ bool NeedToHashFirst(TKTokenKeyAlgorithm * algorithm)
 SecKeyAlgorithm GetAlgorithmFromTKTokenKeyAlgorithm(TKTokenKeyAlgorithm * algorithm)
 {
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureRaw])
-        return kSecKeyAlgorithmRSAEncryptionRaw;
+        return kSecKeyAlgorithmRSASignatureRaw;
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureDigestPKCS1v15Raw])
         return kSecKeyAlgorithmRSASignatureDigestPKCS1v15Raw;
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureDigestPKCS1v15SHA1])
@@ -283,7 +283,7 @@ SecKeyAlgorithm GetAlgorithmFromTKTokenKeyAlgorithm(TKTokenKeyAlgorithm * algori
 NSString* GetAlgorithmStringFromTKTokenKeyAlgorithm(TKTokenKeyAlgorithm * algorithm)
 {
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureRaw])
-        return @"kSecKeyAlgorithmRSAEncryptionRaw";
+        return @"kSecKeyAlgorithmRSASignatureRaw";
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureDigestPKCS1v15Raw])
         return @"kSecKeyAlgorithmRSASignatureDigestPKCS1v15Raw";
     if ([algorithm isAlgorithm:kSecKeyAlgorithmRSASignatureDigestPKCS1v15SHA1])
