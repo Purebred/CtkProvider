@@ -4,6 +4,13 @@ This document describes implementation of a Persistent Token Extension for iOS. 
 
 In this sample, the containing app adds one or more PKCS12 files to the key chain and creates a token for each. The label attribute is set to a SHA256 hash of certificate. The containing app and extension share a key chain access group. The extension provides service using the keys stored in the key chain. Keys are stored with kSecAccessControlUserPresence access control, causing the user to be required to enter the device passcode prior to exercising the key. To build the sample app, first adjust bundle identifiers and key chain access group identifiers. The steps below can be used to create a similar project from scratch.
 
+Note*
+Bundle identifiers need to be updated to reflect bundle identifiers associated with the signer. These include:
+
+Bundle Identifier for CtkProvider, CtkProviderToken
+keychain-access-groups for CtkProvider, CtkProviderToken
+com.apple.ctk.class-id for CtkProviderToken
+
 ## Preparing Xcode project
 
 - Launch Xcode.
