@@ -442,14 +442,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CtkProvider/CtkProvider.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				INFOPLIST_FILE = CtkProvider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.CtkProvider.CtkProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,14 +462,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CtkProvider/CtkProvider.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				INFOPLIST_FILE = CtkProvider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.CtkProvider.CtkProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -480,7 +480,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CtkProviderToken/CtkProviderToken.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				INFOPLIST_FILE = CtkProviderToken/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -488,7 +488,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider.CtkProviderToken;
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.CtkProvider.CtkProvider.CtkProviderToken;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,7 +500,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CtkProviderToken/CtkProviderToken.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				INFOPLIST_FILE = CtkProviderToken/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -508,7 +508,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.CtkProvider.CtkProvider.CtkProviderToken;
+				PRODUCT_BUNDLE_IDENTIFIER = red.hound.CtkProvider.CtkProvider.CtkProviderToken;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

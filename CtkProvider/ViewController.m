@@ -83,9 +83,29 @@
                     }
                 }
             }
+
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Recorded"
+                                           message:@"Token information written to console log."
+                                           preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+               handler:^(UIAlertAction * action) {}];
+
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         else{
             NSLog(@"CtkProvider log: no token configurations \n");
+
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Absent"
+                                           message:@"No token configurations present."
+                                           preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+               handler:^(UIAlertAction * action) {}];
+
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
 }
@@ -113,6 +133,16 @@
     }
 
     [self resetKeychain];
+
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Removed"
+                                   message:@"Removed all tokens."
+                                   preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {}];
+
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)onAddDecryptionToken:(id)sender {
@@ -121,6 +151,16 @@
     SecIdentityRef identity = GetIdentity(@"decryption", @"password");
     AddItem(identity);
     CFRelease(identity);
+
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Added"
+                                   message:@"Added decryption token."
+                                   preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {}];
+
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)onAddAuthenticationToken:(id)sender {
@@ -129,6 +169,16 @@
     SecIdentityRef identity = GetIdentity(@"authentication", @"password");
     AddItem(identity);
     CFRelease(identity);
+
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Added"
+                                   message:@"Added authentication token."
+                                   preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {}];
+
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)onAddSignatureToken:(id)sender {
@@ -137,6 +187,16 @@
     SecIdentityRef identity = GetIdentity(@"signature", @"password");
     AddItem(identity);
     CFRelease(identity);
+
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Added"
+                                   message:@"Added signature token."
+                                   preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {}];
+
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
